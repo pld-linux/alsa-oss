@@ -1,12 +1,12 @@
 Summary:	Advanced Linux Sound Architecture - OSS compatibility wrapper library & script
 Summary(pl):	Advanced Linux Sound Architecture - biblioteka i skrypt kompatibilno¶ci z OSS
 Name:		alsa-oss
-Version:	1.0.5
+Version:	1.0.6
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://ftp.alsa-project.org/pub/oss-lib/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9ae7cf5790202f7ac4b4f2a59977997
+# Source0-md5:	b104ba44268718cacf36fa18383162fe
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.0
 BuildRequires:	autoconf
