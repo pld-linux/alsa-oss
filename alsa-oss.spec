@@ -51,4 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/aoss.1*
 %{_libdir}/*.la
-%{_libdir}/*.so.*
+%{_libdir}/*.so*
