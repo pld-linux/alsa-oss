@@ -1,5 +1,5 @@
-Summary:	Advanced Linux Sound Architecture (ALSA) OSS compatibility wrapper library & script
-Summary(pl):	Advanced Linux Sound Architecture (ALSA) - biblioteka i skrypt  kompatibilno¶ci z OSS
+Summary:	Advanced Linux Sound Architecture - OSS compatibility wrapper library & script
+Summary(pl):	Advanced Linux Sound Architecture - biblioteka i skrypt kompatibilno¶ci z OSS
 Name:		alsa-oss
 %define		_pre	rc2
 Version:	1.0.0
@@ -16,23 +16,21 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-OSS compatibility library and simple wrapper script which facilitates
-it's use. It just sets the appropriate LD_PRELOAD path and then runs
-the command.
-
+This package contains the ALSA -> OSS compatibility library and simple
+wrapper script which facilitates its use. This script just sets the
+appropriate LD_PRELOAD path and then runs the command.
 
 %description -l pl
-Bibliteka kompatybilno¶ci z OSS i prosty wrapper który u³atwia jej
-u¿ycie, który po prostu ustawia odpowiednie LD_PRELOAD po czym
-uruchamia komendê.
-
-
+Ten pakiet zawiera bibliotekê kompatybilno¶ci ALSA -> OSS oraz prosty
+wrapper który u³atwia jej u¿ycie, po prostu ustawiaj±c odpowiednie
+LD_PRELOAD i uruchamiaj±c polecenie.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-%configure
 
 %build
+%configure \
+	--disable-static
 
 %{__make}
 
@@ -42,13 +40,18 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# useless (preloadable library)
+rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/aoss
-
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/aoss.1*
-%{_libdir}/*.la
-%{_libdir}/*.so*
