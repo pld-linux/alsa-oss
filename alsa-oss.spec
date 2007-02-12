@@ -1,5 +1,5 @@
 Summary:	Advanced Linux Sound Architecture - OSS compatibility wrapper library & script
-Summary(pl.UTF-8):   Advanced Linux Sound Architecture - biblioteka i skrypt kompatybilności z OSS
+Summary(pl.UTF-8):	Advanced Linux Sound Architecture - biblioteka i skrypt kompatybilności z OSS
 Name:		alsa-oss
 Version:	1.0.12
 Release:	1
@@ -26,7 +26,7 @@ LD_PRELOAD i uruchamiając polecenie.
 
 %package devel
 Summary:	ossredir header file and static library
-Summary(pl.UTF-8):   Plik nagłówkowy i biblioteka statyczka ossredir
+Summary(pl.UTF-8):	Plik nagłówkowy i biblioteka statyczka ossredir
 Group:		Development/Libraries
 # doesn't require base on build time (only at runtime...)
 
