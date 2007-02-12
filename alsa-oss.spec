@@ -1,5 +1,5 @@
 Summary:	Advanced Linux Sound Architecture - OSS compatibility wrapper library & script
-Summary(pl):	Advanced Linux Sound Architecture - biblioteka i skrypt kompatybilno∂ci z OSS
+Summary(pl.UTF-8):   Advanced Linux Sound Architecture - biblioteka i skrypt kompatybilno≈õci z OSS
 Name:		alsa-oss
 Version:	1.0.12
 Release:	1
@@ -19,14 +19,14 @@ This package contains the ALSA -> OSS compatibility library and simple
 wrapper script which facilitates its use. This script just sets the
 appropriate LD_PRELOAD path and then runs the command.
 
-%description -l pl
-Ten pakiet zawiera bibliotekÍ kompatybilno∂ci ALSA -> OSS oraz prosty
-wrapper ktÛry u≥atwia jej uøycie, po prostu ustawiaj±c odpowiednie
-LD_PRELOAD i uruchamiaj±c polecenie.
+%description -l pl.UTF-8
+Ten pakiet zawiera bibliotekƒô kompatybilno≈õci ALSA -> OSS oraz prosty
+wrapper kt√≥ry u≈Çatwia jej u≈ºycie, po prostu ustawiajƒÖc odpowiednie
+LD_PRELOAD i uruchamiajƒÖc polecenie.
 
 %package devel
 Summary:	ossredir header file and static library
-Summary(pl):	Plik nag≥Ûwkowy i biblioteka statyczka ossredir
+Summary(pl.UTF-8):   Plik nag≈Ç√≥wkowy i biblioteka statyczka ossredir
 Group:		Development/Libraries
 # doesn't require base on build time (only at runtime...)
 
@@ -36,11 +36,11 @@ Sound System) calls to any shared library to avoid overhead caused
 with the LD_PRELOAD wrapper. Especially, wrapping select() and poll()
 functions cause big overhead.
 
-%description devel -l pl
-Celem tego ma≥ego kawa≥ka kodu jest przekierowanie wywo≥aÒ OSS (Open
+%description devel -l pl.UTF-8
+Celem tego ma≈Çego kawa≈Çka kodu jest przekierowanie wywo≈Ça≈Ñ OSS (Open
 Sound System) do dowolnej biblioteki dzielonej, aby zapobiec narzutowi
-wywo≥anemu przez wrapper LD_PRELOAD. SzczegÛlnie przechwytywanie
-select() i poll() powoduje duøy narzut.
+wywo≈Çanemu przez wrapper LD_PRELOAD. Szczeg√≥lnie przechwytywanie
+select() i poll() powoduje du≈ºy narzut.
 
 %prep
 %setup -q
