@@ -1,0 +1,14 @@
+diff -urN alsa-oss-1.0.15.org/alsa/aoss.in alsa-oss-1.0.15/alsa/aoss.in
+--- alsa-oss-1.0.15.org/alsa/aoss.in	2007-10-15 10:50:40.000000000 +0200
++++ alsa-oss-1.0.15/alsa/aoss.in	2007-11-28 17:46:34.777867103 +0100
+@@ -5,9 +5,7 @@
+ #	aoss <command> <command options and arguments>
+ 
+ if [ -d /proc/asound ]; then
+-  prefix=@prefix@
+-  exec_prefix=@exec_prefix@
+-  LD_PRELOAD=${exec_prefix}/\$LIB/libaoss.so${LD_PRELOAD:+:$LD_PRELOAD} exec "$@"
++  LD_PRELOAD=@libdir@/libaoss.so${LD_PRELOAD:+:$LD_PRELOAD} exec "$@"
+ else
+   exec "$@"
+ fi
