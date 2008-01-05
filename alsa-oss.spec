@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Advanced Linux Sound Architecture - biblioteka i skrypt kompa
 Name:		alsa-oss
 Version:	1.0.15
 Release:	2
-License:	GPL
+License:	GPL v2+
 Group:		Applications/Sound
 Source0:	ftp://ftp.alsa-project.org/pub/oss-lib/%{name}-%{version}.tar.bz2
 # Source0-md5:	49fb5fbae8bf955b248e46ff9c9a2aa1
@@ -71,8 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/aoss
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libalsatoss.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libalsatoss.so.0
+%attr(755,root,root) %{_libdir}/libalsatoss.so
+%attr(755,root,root) %{_libdir}/libaoss.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libaoss.so.0
+%attr(755,root,root) %{_libdir}/libaoss.so
 %{_mandir}/man1/aoss.1*
 
 %files devel
