@@ -1,13 +1,14 @@
 Summary:	Advanced Linux Sound Architecture - OSS compatibility wrapper library & script
 Summary(pl.UTF-8):	Advanced Linux Sound Architecture - biblioteka i skrypt kompatybilności z OSS
 Name:		alsa-oss
-Version:	1.0.17
+Version:	1.0.25
 Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
 Source0:	ftp://ftp.alsa-project.org/pub/oss-lib/%{name}-%{version}.tar.bz2
-# Source0-md5:	1b1850c2fc91476a73d50f537cbd402f
+# Source0-md5:	922ea177db15c72f1b5037181c73f934
 Patch0:		%{name}-path.patch
+Patch1:		alsa-oss-libdl.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.0
 BuildRequires:	autoconf
@@ -46,9 +47,13 @@ select() i poll() powoduje duży narzut.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
