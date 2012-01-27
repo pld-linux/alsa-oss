@@ -11,7 +11,7 @@ Patch0:		%{name}-path.patch
 Patch1:		alsa-oss-libdl.patch
 URL:		http://www.alsa-project.org/
 BuildRequires:	alsa-lib-devel >= 1.0.0
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # useless (preloadable libraries)
-rm -f $RPM_BUILD_ROOT%{_libdir}/lib{alsatoss,aoss}.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib{alsatoss,aoss}.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
